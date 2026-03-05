@@ -1,0 +1,74 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies (bun install)
+/node_modules*
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# output
+out
+dist
+*.tgz
+ach-transfers.json
+generated/data/ach-transfers.json
+
+# code coverage / testing
+/coverage
+*.lcov
+
+# next.js
+/.next/
+/out/
+
+# logs
+logs
+_.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# dotenv environment variable files (can opt-in for committing if needed)
+.env*
+# .env.development.local
+# .env.test.local
+# .env.production.local
+# .env.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# caches
+.eslintcache
+.cache
+
+# IntelliJ based IDEs
+.idea
+
+# Cursor generated files
+.cursor/plans/**
+
+# Keep .cursor/plans directory
+!.cursor/plans/.gitkeep
+
+# Finder (MacOS) folder config
+.DS_Store

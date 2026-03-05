@@ -1,0 +1,32 @@
+[test]
+# Preload happy-dom for DOM testing
+preload = ["./test/setup.ts"]
+
+# Enable coverage by default
+coverage = true
+
+# Set coverage output directory
+coverageDir = "./coverage"
+
+# Set coverage reporter
+coverageReporter = ["text", "lcov"]
+
+# Set coverage threshold
+coverageThreshold = { lines = 1.0, functions = 1.0, statements = 1.0, branches = 1.0 }
+
+# Skip test files from coverage
+coverageSkipTestFiles = true
+
+# Ignore paths from coverage
+coveragePathIgnorePatterns = [
+  "**/node_modules/**", 
+  "dist/**", 
+  "generated/**", 
+  "**/*.config.js",
+  "scripts/cli/**",
+  "private/**"
+]
+
+[serve.static]
+plugins = ["bun-plugin-tailwind"]
+env = "BUN_PUBLIC_*"
