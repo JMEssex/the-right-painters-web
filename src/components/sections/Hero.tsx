@@ -65,11 +65,11 @@ export default function Hero() {
                 <Link href="/contact">Get Your Free Estimate</Link>
               </Button>
               <a
-                href="tel:+14235551234"
+                href="tel:+14233808107"
                 className="flex items-center gap-2.5 h-13 px-6 rounded-lg border border-brand-charcoal/10 bg-white/70 backdrop-blur-sm text-brand-graphite hover:text-brand-charcoal hover:border-brand-stone transition-all duration-200 text-base font-medium"
               >
                 <Phone className="size-4" />
-                <span>(423) 555-1234</span>
+                <span>(423) 380-8107</span>
               </a>
             </div>
 

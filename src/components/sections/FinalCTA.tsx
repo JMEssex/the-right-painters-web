@@ -37,7 +37,7 @@ export default function FinalCTA() {
             {/* Quick contact options */}
             <div className="space-y-4">
               <a
-                href="tel:+14235551234"
+                href="tel:+14233808107"
                 className="flex items-center gap-4 p-4 rounded-xl border border-border bg-white hover:border-brand-stone transition-colors group"
               >
                 <div className="w-12 h-12 rounded-lg bg-brand-cream flex items-center justify-center group-hover:bg-brand-copper/10 transition-colors">
@@ -48,7 +48,7 @@ export default function FinalCTA() {
                     Call us directly
                   </p>
                   <p className="text-sm text-brand-stone">
-                    (423) 555-1234 &middot; Mon-Sat, 7am-6pm
+                    (423) 380-8107 &middot; Mon-Sat, 7am-6pm
                   </p>
                 </div>
               </a>

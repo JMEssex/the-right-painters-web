@@ -17,7 +17,7 @@ const jsonLd = {
   description:
     "Premium interior and exterior painting services for homes and businesses across the TAG Corner tri-state area around Chattanooga, TN.",
   url: "https://therightpainters.com",
-  telephone: "+1-423-555-1234",
+  telephone: "+1-423-380-8107",
   email: "hello@therightpainters.com",
   address: {
     "@type": "PostalAddress",

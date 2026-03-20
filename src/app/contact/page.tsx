@@ -54,7 +54,7 @@ export default function ContactPage() {
                   </h2>
                   <div className="space-y-5">
                     <a
-                      href="tel:+14235551234"
+                      href="tel:+14233808107"
                       className="flex items-start gap-4 group"
                     >
                       <div className="w-10 h-10 rounded-lg bg-brand-cream flex items-center justify-center shrink-0 group-hover:bg-brand-copper/10 transition-colors">
@@ -65,7 +65,7 @@ export default function ContactPage() {
                           Phone
                         </p>
                         <p className="text-sm text-brand-graphite">
-                          (423) 555-1234
+                          (423) 380-8107
                         </p>
                       </div>
                     </a>

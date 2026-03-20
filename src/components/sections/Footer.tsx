@@ -41,11 +41,11 @@ export default function Footer() {
             </p>
             <div className="space-y-2.5">
               <a
-                href="tel:+14235551234"
+                href="tel:+14233808107"
                 className="flex items-center gap-2.5 text-sm text-white/60 hover:text-brand-copper-light transition-colors"
               >
                 <Phone className="size-4 shrink-0" />
-                (423) 555-1234
+                (423) 380-8107
               </a>
               <a
                 href="mailto:hello@therightpainters.com"

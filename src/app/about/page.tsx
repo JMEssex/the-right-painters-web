@@ -193,10 +193,10 @@ export default function AboutPage() {
                 <Link href="/contact">Get a Free Estimate</Link>
               </Button>
               <a
-                href="tel:+14235551234"
+                href="tel:+14233808107"
                 className="text-sm font-medium text-white/60 hover:text-brand-copper-light transition-colors"
               >
-                or call (423) 555-1234
+                or call (423) 380-8107
               </a>
             </div>
           </div>
