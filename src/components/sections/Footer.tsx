@@ -1,14 +1,12 @@
-import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
+import Link from "next/link";
+
+import { company } from "@/data/company";
+import { serviceAreaFacts } from "@/data/service-area";
+import { serviceLinks } from "@/data/services";
 
 const footerNav = {
-  services: [
-    { label: "Interior Painting", href: "/services#interior" },
-    { label: "Exterior Painting", href: "/services#exterior" },
-    { label: "Cabinet Refinishing", href: "/services#cabinets" },
-    { label: "Deck & Fence Staining", href: "/services#deck" },
-    { label: "Commercial Painting", href: "/services#commercial" },
-  ],
+  services: serviceLinks,
   company: [
     { label: "About Us", href: "/about" },
     { label: "Portfolio", href: "/portfolio" },
@@ -41,22 +39,22 @@ export default function Footer() {
             </p>
             <div className="space-y-2.5">
               <a
-                href="tel:+14233808107"
+                href={company.phone.href}
                 className="flex items-center gap-2.5 text-sm text-white/60 hover:text-brand-copper-light transition-colors"
               >
                 <Phone className="size-4 shrink-0" />
-                (423) 380-8107
+                {company.phone.display}
               </a>
               <a
-                href="mailto:hello@therightpainters.com"
+                href={company.email.href}
                 className="flex items-center gap-2.5 text-sm text-white/60 hover:text-brand-copper-light transition-colors"
               >
                 <Mail className="size-4 shrink-0" />
-                hello@therightpainters.com
+                {company.email.address}
               </a>
               <div className="flex items-center gap-2.5 text-sm text-white/60">
                 <MapPin className="size-4 shrink-0" />
-                Chattanooga, TN & surrounding area
+                {serviceAreaFacts.hubCity} & surrounding area
               </div>
             </div>
           </div>
@@ -104,20 +102,14 @@ export default function Footer() {
             <h4 className="text-sm font-semibold uppercase tracking-wide text-white/80 mb-4">
               Hours
             </h4>
-            <ul className="space-y-2.5 text-sm text-white/50">
-              <li className="flex justify-between gap-4">
-                <span>Monday - Friday</span>
-                <span className="text-white/70">7:00am - 6:00pm</span>
-              </li>
-              <li className="flex justify-between gap-4">
-                <span>Saturday</span>
-                <span className="text-white/70">8:00am - 2:00pm</span>
-              </li>
-              <li className="flex justify-between gap-4">
-                <span>Sunday</span>
-                <span className="text-white/70">Closed</span>
-              </li>
-            </ul>
+              <ul className="space-y-2.5 text-sm text-white/50">
+                {company.hours.map((hours) => (
+                  <li key={hours.label} className="flex justify-between gap-4">
+                    <span>{hours.label}</span>
+                    <span className="text-white/70">{hours.display}</span>
+                  </li>
+                ))}
+              </ul>
             <p className="mt-4 text-xs text-white/30">
               Emergency & after-hours requests considered on a case-by-case basis.
             </p>

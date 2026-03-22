@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import Header from "@/components/sections/Header";
+
 import Footer from "@/components/sections/Footer";
+import Header from "@/components/sections/Header";
+import { Button } from "@/components/ui/button";
+import { company } from "@/data/company";
+import { serviceAreaFacts } from "@/data/service-area";
 
 export const metadata: Metadata = {
   title: "About Us | The Right Painters — Chattanooga & TAG Corner",
@@ -79,7 +82,7 @@ export default function AboutPage() {
                     for.
                   </p>
                   <p>
-                    We set out to do things differently. Over the past 15 years,
+                    We set out to do things differently. Over the past {company.stats.yearsInBusiness.display} years,
                     we&apos;ve built a reputation across the Chattanooga area for
                     thorough preparation, clean workmanship, and clear
                     communication from the first estimate to the final
@@ -88,7 +91,7 @@ export default function AboutPage() {
                   <p>
                     Today we serve homeowners and businesses throughout the TAG
                     Corner tri-state region — Tennessee, Alabama, and Georgia —
-                    within about 50 miles of downtown Chattanooga. We&apos;re
+                    within about {serviceAreaFacts.radiusMiles} miles of downtown Chattanooga. We&apos;re
                     proud to be locally owned, locally operated, and built
                     entirely on referrals from people who&apos;ve seen our work
                     firsthand.
@@ -108,7 +111,7 @@ export default function AboutPage() {
                         Years in business
                       </dt>
                       <dd className="text-2xl font-semibold text-brand-charcoal font-mono">
-                        15+
+                          {company.stats.yearsInBusiness.display}
                       </dd>
                     </div>
                     <div className="flex justify-between items-baseline border-b border-border/50 pb-4">
@@ -116,7 +119,7 @@ export default function AboutPage() {
                         Homes painted
                       </dt>
                       <dd className="text-2xl font-semibold text-brand-charcoal font-mono">
-                        800+
+                          {company.stats.homesPainted.display}
                       </dd>
                     </div>
                     <div className="flex justify-between items-baseline border-b border-border/50 pb-4">
@@ -124,7 +127,7 @@ export default function AboutPage() {
                         Average review score
                       </dt>
                       <dd className="text-2xl font-semibold text-brand-charcoal font-mono">
-                        4.9
+                          {company.stats.rating.display}
                       </dd>
                     </div>
                     <div className="flex justify-between items-baseline">
@@ -132,7 +135,7 @@ export default function AboutPage() {
                         Service radius
                       </dt>
                       <dd className="text-2xl font-semibold text-brand-charcoal font-mono">
-                        50 mi
+                          {serviceAreaFacts.radiusMiles} mi
                       </dd>
                     </div>
                   </dl>
@@ -193,10 +196,10 @@ export default function AboutPage() {
                 <Link href="/contact">Get a Free Estimate</Link>
               </Button>
               <a
-                href="tel:+14233808107"
+                href={company.phone.href}
                 className="text-sm font-medium text-white/60 hover:text-brand-copper-light transition-colors"
               >
-                or call (423) 380-8107
+                or call {company.phone.display}
               </a>
             </div>
           </div>

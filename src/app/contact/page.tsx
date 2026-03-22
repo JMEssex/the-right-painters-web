@@ -1,11 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Header from "@/components/sections/Header";
+import Link from "next/link";
+import { useState } from "react";
+
 import Footer from "@/components/sections/Footer";
+import Header from "@/components/sections/Header";
+import { Button } from "@/components/ui/button";
+import { company, weekdayHours, saturdayHours, sundayHours } from "@/data/company";
+import { serviceAreaFacts } from "@/data/service-area";
+import { serviceSelectOptions } from "@/data/services";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -54,7 +58,7 @@ export default function ContactPage() {
                   </h2>
                   <div className="space-y-5">
                     <a
-                      href="tel:+14233808107"
+                      href={company.phone.href}
                       className="flex items-start gap-4 group"
                     >
                       <div className="w-10 h-10 rounded-lg bg-brand-cream flex items-center justify-center shrink-0 group-hover:bg-brand-copper/10 transition-colors">
@@ -65,13 +69,13 @@ export default function ContactPage() {
                           Phone
                         </p>
                         <p className="text-sm text-brand-graphite">
-                          (423) 380-8107
+                          {company.phone.display}
                         </p>
                       </div>
                     </a>
 
                     <a
-                      href="mailto:hello@therightpainters.com"
+                      href={company.email.href}
                       className="flex items-start gap-4 group"
                     >
                       <div className="w-10 h-10 rounded-lg bg-brand-cream flex items-center justify-center shrink-0 group-hover:bg-brand-copper/10 transition-colors">
@@ -82,7 +86,7 @@ export default function ContactPage() {
                           Email
                         </p>
                         <p className="text-sm text-brand-graphite">
-                          hello@therightpainters.com
+                          {company.email.address}
                         </p>
                       </div>
                     </a>
@@ -96,9 +100,9 @@ export default function ContactPage() {
                           Service Area
                         </p>
                         <p className="text-sm text-brand-graphite">
-                          Chattanooga, TN & TAG Corner tri-state
+                          {serviceAreaFacts.hubCity} & {serviceAreaFacts.regionLabel}
                           <br />
-                          ~50 mile radius
+                          ~{serviceAreaFacts.radiusMiles} mile radius
                         </p>
                       </div>
                     </div>
@@ -112,11 +116,11 @@ export default function ContactPage() {
                           Hours
                         </p>
                         <p className="text-sm text-brand-graphite">
-                          Mon-Fri: 7:00am - 6:00pm
+                          {weekdayHours.shortLabel}: {weekdayHours.display}
                           <br />
-                          Sat: 8:00am - 2:00pm
+                          {saturdayHours.shortLabel}: {saturdayHours.display}
                           <br />
-                          Sun: Closed
+                          {sundayHours.shortLabel}: {sundayHours.display}
                         </p>
                       </div>
                     </div>
@@ -131,7 +135,7 @@ export default function ContactPage() {
                   <ul className="space-y-2.5 text-sm text-brand-graphite">
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-brand-copper/40 shrink-0" />
-                      Response within 24 hours
+                      Response {company.responseTime.label}
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-brand-copper/40 shrink-0" />
@@ -258,18 +262,11 @@ export default function ContactPage() {
                             className="w-full h-11 px-3.5 rounded-lg border border-input bg-background text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand-copper/20 focus:border-brand-copper transition-all appearance-none"
                           >
                             <option value="">Select a service (optional)</option>
-                            <option value="interior">Interior Painting</option>
-                            <option value="exterior">Exterior Painting</option>
-                            <option value="cabinets">
-                              Cabinet Refinishing
-                            </option>
-                            <option value="deck">
-                              Deck & Fence Staining
-                            </option>
-                            <option value="commercial">
-                              Commercial Painting
-                            </option>
-                            <option value="other">Other / Not Sure</option>
+                            {serviceSelectOptions.map((option) => (
+                              <option key={option.value} value={option.value}>
+                                {option.label}
+                              </option>
+                            ))}
                           </select>
                         </div>
 

@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { Phone, Send, CheckCircle } from "lucide-react";
+import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
+import { company, hoursSummary } from "@/data/company";
+import { serviceSelectOptions } from "@/data/services";
 
 export default function FinalCTA() {
   const [submitted, setSubmitted] = useState(false);
@@ -37,7 +40,7 @@ export default function FinalCTA() {
             {/* Quick contact options */}
             <div className="space-y-4">
               <a
-                href="tel:+14233808107"
+                href={company.phone.href}
                 className="flex items-center gap-4 p-4 rounded-xl border border-border bg-white hover:border-brand-stone transition-colors group"
               >
                 <div className="w-12 h-12 rounded-lg bg-brand-cream flex items-center justify-center group-hover:bg-brand-copper/10 transition-colors">
@@ -48,7 +51,7 @@ export default function FinalCTA() {
                     Call us directly
                   </p>
                   <p className="text-sm text-brand-stone">
-                    (423) 380-8107 &middot; Mon-Sat, 7am-6pm
+                    {company.phone.display} &middot; {hoursSummary}
                   </p>
                 </div>
               </a>
@@ -56,7 +59,7 @@ export default function FinalCTA() {
 
             {/* Trust signals near form */}
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-xs text-brand-stone">
-              <span>Response within 24 hours</span>
+              <span>Response {company.responseTime.label}</span>
               <span>No-obligation estimate</span>
               <span>Licensed & fully insured</span>
             </div>
@@ -165,12 +168,11 @@ export default function FinalCTA() {
                       className="w-full h-11 px-3.5 rounded-lg border border-input bg-background text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand-copper/20 focus:border-brand-copper transition-all appearance-none"
                     >
                       <option value="">Select a service</option>
-                      <option value="interior">Interior Painting</option>
-                      <option value="exterior">Exterior Painting</option>
-                      <option value="cabinets">Cabinet Refinishing</option>
-                      <option value="deck">Deck & Fence Staining</option>
-                      <option value="commercial">Commercial Painting</option>
-                      <option value="other">Other / Not Sure</option>
+                      {serviceSelectOptions.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
                     </select>
                   </div>
 

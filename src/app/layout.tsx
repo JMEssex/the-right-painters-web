@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Playfair_Display } from 'next/font/google';
 
+import { serviceAreaFacts } from '@/data/service-area';
+
 import './globals.css';
 
 const geistSans = Geist({
@@ -23,7 +25,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: 'The Right Painters | Premium Painting Services in Chattanooga & TAG Corner',
   description:
-    'Professional interior and exterior painting for homes and businesses across the TAG Corner tri-state area. Serving Chattanooga, TN and surrounding communities within 50 miles. Free estimates.',
+    `Professional interior and exterior painting for homes and businesses across the ${serviceAreaFacts.regionLabel}. Serving ${serviceAreaFacts.hubCity} and surrounding communities within ${serviceAreaFacts.radiusMiles} miles. Free estimates.`,
   keywords: [
     'painting company Chattanooga',
     'house painters TAG Corner',

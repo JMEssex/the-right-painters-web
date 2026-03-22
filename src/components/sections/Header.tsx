@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import { Phone, Menu, X } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
+import { company } from "@/data/company";
 
 const navLinks = [
   { href: "/services", label: "Services" },
@@ -49,11 +51,11 @@ export default function Header() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="tel:+14233808107"
+              href={company.phone.href}
               className="flex items-center gap-2 text-sm font-medium text-brand-graphite hover:text-brand-copper transition-colors"
             >
               <Phone className="size-4" />
-              <span>(423) 380-8107</span>
+              <span>{company.phone.display}</span>
             </a>
             <Button
               asChild
@@ -90,11 +92,11 @@ export default function Header() {
             ))}
             <div className="flex flex-col gap-3 pt-4">
               <a
-                href="tel:+14233808107"
+                href={company.phone.href}
                 className="flex items-center justify-center gap-2 h-12 rounded-lg border border-border text-brand-graphite font-medium transition-colors hover:bg-muted"
               >
                 <Phone className="size-4" />
-                <span>(423) 380-8107</span>
+                <span>{company.phone.display}</span>
               </a>
               <Button
                 asChild

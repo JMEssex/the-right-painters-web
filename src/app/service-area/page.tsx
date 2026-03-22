@@ -1,66 +1,17 @@
+import { MapPin, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Header from "@/components/sections/Header";
+
 import Footer from "@/components/sections/Footer";
+import Header from "@/components/sections/Header";
+import { Button } from "@/components/ui/button";
+import { serviceAreaFacts, serviceAreaRegions } from "@/data/service-area";
 
 export const metadata: Metadata = {
   title: "Service Area | The Right Painters — Chattanooga & TAG Corner",
   description:
-    "We serve homes and businesses within a 50-mile radius of Chattanooga, TN — covering the TAG Corner tri-state area across Tennessee, Georgia, and Alabama.",
+    `We serve homes and businesses within a ${serviceAreaFacts.radiusMiles}-mile radius of ${serviceAreaFacts.hubCity} - covering the ${serviceAreaFacts.regionLabel} across Tennessee, Georgia, and Alabama.`,
 };
-
-const regions = [
-  {
-    state: "Tennessee",
-    description:
-      "Our home base. We cover the greater Chattanooga metro and surrounding communities across Hamilton, Bradley, Marion, Sequatchie, and Grundy counties.",
-    cities: [
-      "Chattanooga",
-      "Signal Mountain",
-      "Red Bank",
-      "Hixson",
-      "Soddy-Daisy",
-      "Ooltewah",
-      "Collegedale",
-      "East Ridge",
-      "Lookout Mountain, TN",
-      "Cleveland",
-      "Jasper",
-      "South Pittsburg",
-      "Monteagle",
-    ],
-  },
-  {
-    state: "Georgia",
-    description:
-      "The northwest Georgia corner of the TAG region, from the Chickamauga Valley up through Lookout Mountain and into Dade and Walker counties.",
-    cities: [
-      "Fort Oglethorpe",
-      "Ringgold",
-      "Chickamauga",
-      "Trenton",
-      "Lookout Mountain, GA",
-      "Rossville",
-      "LaFayette",
-      "Rock Spring",
-    ],
-  },
-  {
-    state: "Alabama",
-    description:
-      "The northeast Alabama communities along the Tennessee River and up through the Cumberland Plateau in Jackson and DeKalb counties.",
-    cities: [
-      "Scottsboro",
-      "Bridgeport",
-      "Stevenson",
-      "Fort Payne",
-      "Rainsville",
-      "Section",
-    ],
-  },
-];
 
 export default function ServiceAreaPage() {
   return (
@@ -84,10 +35,10 @@ export default function ServiceAreaPage() {
                 tri-state region
               </h1>
               <p className="text-base md:text-lg text-brand-graphite leading-relaxed max-w-[60ch]">
-                TAG stands for Tennessee, Alabama, and Georgia — the tri-state
-                area where the Cumberland Plateau meets the Tennessee Valley. We
-                paint homes and businesses within roughly 50 miles of downtown
-                Chattanooga.
+                 TAG stands for Tennessee, Alabama, and Georgia — the tri-state
+                 area where the Cumberland Plateau meets the Tennessee Valley. We
+                 paint homes and businesses within roughly {serviceAreaFacts.radiusMiles} miles of downtown
+                 Chattanooga.
               </p>
             </div>
           </div>
@@ -98,13 +49,13 @@ export default function ServiceAreaPage() {
           <div className="section-width section-padding">
             <div className="relative w-full aspect-[21/9] rounded-xl bg-brand-cream border border-border overflow-hidden flex items-center justify-center">
               <div className="text-center">
-                <MapPin className="size-12 text-brand-copper mx-auto mb-4" />
-                <p className="text-lg font-semibold text-brand-charcoal">
-                  Chattanooga, TN
-                </p>
-                <p className="text-sm text-brand-stone mt-1">
-                  50-mile service radius covering the TAG Corner tri-state area
-                </p>
+                 <MapPin className="size-12 text-brand-copper mx-auto mb-4" />
+                 <p className="text-lg font-semibold text-brand-charcoal">
+                   {serviceAreaFacts.hubCity}
+                 </p>
+                 <p className="text-sm text-brand-stone mt-1">
+                   {serviceAreaFacts.radiusMiles}-mile service radius covering the {serviceAreaFacts.regionLabel}
+                 </p>
                 <p className="text-xs text-brand-stone/60 mt-2">
                   Interstate 24 &middot; Interstate 59 &middot; US 11
                 </p>
@@ -117,7 +68,7 @@ export default function ServiceAreaPage() {
         <section className="py-16 md:py-24 bg-background">
           <div className="section-width section-padding">
             <div className="space-y-16 md:space-y-20">
-              {regions.map((region, index) => (
+               {serviceAreaRegions.map((region, index) => (
                 <div
                   key={region.state}
                   className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12"
@@ -164,9 +115,9 @@ export default function ServiceAreaPage() {
                 Don&apos;t see your city?
               </h3>
               <p className="text-sm text-brand-graphite max-w-[45ch] mx-auto mb-6">
-                If you&apos;re within 50 miles of Chattanooga, there&apos;s a
-                good chance we can serve you. Reach out and let us know where
-                you are.
+                 If you&apos;re within {serviceAreaFacts.radiusMiles} miles of {serviceAreaFacts.hubCity}, there&apos;s a
+                 good chance we can serve you. Reach out and let us know where
+                 you are.
               </p>
               <Button
                 asChild

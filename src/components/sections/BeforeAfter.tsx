@@ -1,27 +1,8 @@
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import heroEnd1 from "@/assets/hero-image-end-1.png";
-import heroEnd2 from "@/assets/hero-image-end-2.png";
 
-const projects = [
-  {
-    image: heroEnd1,
-    title: "Full Interior & Exterior Restoration",
-    location: "Signal Mountain, TN",
-    tags: ["Interior", "Exterior", "Cabinet Refinish"],
-    description:
-      "Complete repaint of a 3,200 sq ft home — every surface from kitchen cabinetry to exterior siding. Cross-section shows the level of detail we bring to each room.",
-  },
-  {
-    image: heroEnd2,
-    title: "Modern Farmhouse Transformation",
-    location: "Lookout Mountain, GA",
-    tags: ["Exterior", "Deck Stain", "Trim Work"],
-    description:
-      "Exterior refresh with a crisp white and charcoal palette. New stain on all decking and a full trim detail package brought this home back to life.",
-  },
-];
+import { featuredProjects } from "@/data/projects";
 
 export default function BeforeAfter() {
   return (
@@ -47,14 +28,14 @@ export default function BeforeAfter() {
 
         {/* Projects — asymmetric grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {projects.map((project) => (
-            <div key={project.title} className="group">
+          {featuredProjects.map((project) => (
+            <div key={project.id} className="group">
               {/* Image */}
               <div className="relative overflow-hidden rounded-xl bg-brand-cream mb-6">
                 <div className="aspect-[4/3] relative">
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={project.featuredTitle ?? project.title}
                     fill
                     className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -76,11 +57,11 @@ export default function BeforeAfter() {
 
               {/* Info — below, gallery-style */}
               <h3 className="text-xl font-semibold text-brand-charcoal mb-1">
-                {project.title}
+                {project.featuredTitle ?? project.title}
               </h3>
               <p className="text-sm text-brand-stone mb-3">{project.location}</p>
               <p className="text-sm text-brand-graphite leading-relaxed max-w-[50ch]">
-                {project.description}
+                {project.featuredDescription ?? project.description}
               </p>
             </div>
           ))}

@@ -1,8 +1,11 @@
+import { Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
 import heroImage from "@/assets/hero-image-starter.png";
+import { Button } from "@/components/ui/button";
+import { company } from "@/data/company";
+import { serviceAreaFacts } from "@/data/service-area";
 
 export default function Hero() {
   return (
@@ -65,17 +68,17 @@ export default function Hero() {
                 <Link href="/contact">Get Your Free Estimate</Link>
               </Button>
               <a
-                href="tel:+14233808107"
+                href={company.phone.href}
                 className="flex items-center gap-2.5 h-13 px-6 rounded-lg border border-brand-charcoal/10 bg-white/70 backdrop-blur-sm text-brand-graphite hover:text-brand-charcoal hover:border-brand-stone transition-all duration-200 text-base font-medium"
               >
                 <Phone className="size-4" />
-                <span>(423) 380-8107</span>
+                <span>{company.phone.display}</span>
               </a>
             </div>
 
             {/* Trust micro-line */}
             <p className="text-sm text-brand-stone">
-              Licensed & insured &middot; Free estimates within 24 hours &middot; Serving a 50-mile radius
+              Licensed & insured &middot; Free estimates {company.responseTime.label} &middot; Serving a {serviceAreaFacts.radiusMiles}-mile radius
             </p>
           </div>
         </div>

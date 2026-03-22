@@ -1,5 +1,7 @@
 import { Shield, Clock, Star, Award } from "lucide-react";
 
+import { company } from "@/data/company";
+
 const trustItems = [
   {
     icon: Shield,
@@ -8,13 +10,13 @@ const trustItems = [
   },
   {
     icon: Clock,
-    label: "15+ Years",
-    detail: "Serving the TAG Corner area",
+    label: `${company.stats.yearsInBusiness.display} Years`,
+    detail: company.stats.yearsInBusiness.detail,
   },
   {
     icon: Star,
-    label: "4.9 Rating",
-    detail: "Across 120+ reviews",
+    label: `${company.stats.rating.display} Rating`,
+    detail: `Across ${company.stats.reviewCount.display} reviews`,
   },
   {
     icon: Award,

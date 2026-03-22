@@ -1,49 +1,18 @@
+import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Header from "@/components/sections/Header";
+
 import Footer from "@/components/sections/Footer";
-import heroEnd1 from "@/assets/hero-image-end-1.png";
-import heroEnd2 from "@/assets/hero-image-end-2.png";
-import heroStarter from "@/assets/hero-image-starter.png";
+import Header from "@/components/sections/Header";
+import { Button } from "@/components/ui/button";
+import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Portfolio | The Right Painters — Chattanooga & TAG Corner",
   description:
     "Browse our recent painting projects across the TAG Corner tri-state area. Interior, exterior, cabinet, and commercial work showcasing premium craftsmanship.",
 };
-
-const projects = [
-  {
-    image: heroEnd1,
-    title: "Signal Mountain Interior & Exterior Restoration",
-    location: "Signal Mountain, TN",
-    type: "Interior & Exterior",
-    description:
-      "Complete repaint of a 3,200 sq ft home — every surface from kitchen cabinetry to exterior siding. Two weeks from start to final walkthrough.",
-    size: "large",
-  },
-  {
-    image: heroEnd2,
-    title: "Lookout Mountain Modern Farmhouse",
-    location: "Lookout Mountain, GA",
-    type: "Exterior & Deck",
-    description:
-      "Exterior refresh with a crisp white and charcoal palette. Full deck stain and trim detail package brought this home back to life.",
-    size: "medium",
-  },
-  {
-    image: heroStarter,
-    title: "Red Bank Whole-Home Refresh",
-    location: "Red Bank, TN",
-    type: "Interior & Cabinets",
-    description:
-      "Interior walls, ceiling, all trim, plus a full kitchen cabinet refinish in a warm white to match the home's classic farmhouse style.",
-    size: "medium",
-  },
-];
 
 export default function PortfolioPage() {
   return (
@@ -79,16 +48,16 @@ export default function PortfolioPage() {
         <section className="py-16 md:py-24 bg-background">
           <div className="section-width section-padding">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-              {projects.map((project, index) => (
+              {projects.map((project) => (
                 <div
-                  key={project.title}
+                  key={project.id}
                   className={`group ${
-                    index === 0 ? "lg:col-span-2" : ""
+                    project.size === "large" ? "lg:col-span-2" : ""
                   }`}
                 >
                   <div
                     className={`relative overflow-hidden rounded-xl bg-brand-cream ${
-                      index === 0 ? "aspect-[16/9]" : "aspect-[4/3]"
+                      project.size === "large" ? "aspect-[16/9]" : "aspect-[4/3]"
                     }`}
                   >
                     <Image
@@ -97,7 +66,7 @@ export default function PortfolioPage() {
                       fill
                       className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                       sizes={
-                        index === 0
+                        project.size === "large"
                           ? "(max-width: 768px) 100vw, 90vw"
                           : "(max-width: 768px) 100vw, 50vw"
                       }
