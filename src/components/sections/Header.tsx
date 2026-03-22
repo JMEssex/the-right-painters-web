@@ -53,7 +53,7 @@ export default function Header() {
               className="flex items-center gap-2 text-sm font-medium text-brand-graphite hover:text-brand-copper transition-colors"
             >
               <Phone className="size-4" />
-              <span>(423) 555-1234</span>
+              <span>(423) 380-8107</span>
             </a>
             <Button
               asChild
