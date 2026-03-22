@@ -15,6 +15,9 @@ const regions = [
       "East Ridge",
       "Lookout Mountain, TN",
       "Cleveland",
+      "Jasper",
+      "South Pittsburg",
+      "Monteagle",
     ],
   },
   {
@@ -27,6 +30,7 @@ const regions = [
       "Lookout Mountain, GA",
       "Rossville",
       "LaFayette",
+      "Rock Spring",
     ],
   },
   {
@@ -34,8 +38,10 @@ const regions = [
     cities: [
       "Scottsboro",
       "Bridgeport",
-      "South Pittsburg",
       "Stevenson",
+      "Fort Payne",
+      "Rainsville",
+      "Section",
     ],
   },
 ];
